@@ -1,0 +1,30 @@
+
+type Player {
+    id:ID
+    name:String
+    lastname:String
+    position:Position
+}
+
+enum Position {
+    PG
+    SG
+    SF
+    PF
+    C
+}
+
+input CreatePlayer {
+    name:String!
+    lastname:String!
+    position:Position!
+}
+
+type Query {
+    playerList: [Player]
+}
+
+type Mutation {
+    createPlayer(input:CreatePlayer): Player
+    deletePlayer(id:Int): String
+}
